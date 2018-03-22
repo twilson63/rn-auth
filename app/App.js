@@ -1,6 +1,13 @@
 import { AuthSession } from 'expo'
 import React from 'react'
-import { Alert, Button, StyleSheet, Text, View } from 'react-native'
+import {
+  Alert,
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight
+} from 'react-native'
 import jwtDecoder from 'jwt-decode'
 
 /*
@@ -101,8 +108,19 @@ export default class App extends React.Component {
         {this.state.username !== undefined ? (
           <View>
             <Text style={styles.title}>Hi {this.state.username}!</Text>
-            <TouchableHighlight onPress={() => this._logout()}>
-              Logout
+            <TouchableHighlight
+              style={{
+                margin: 16,
+                paddingVertical: 8,
+                paddingHorizontal: 16,
+                borderRadius: 4,
+                borderWidth: 2,
+                borderColor: 'rgba(0,0,0,.54)',
+                alignItems: 'center'
+              }}
+              onPress={() => this._logout()}
+            >
+              <Text>Logout</Text>
             </TouchableHighlight>
           </View>
         ) : (
